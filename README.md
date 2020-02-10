@@ -24,11 +24,6 @@ To get started using a FreeClimb account, follow the instructions [here](https:/
    | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | ACCOUNT_ID              | Account ID which can be found under [API Keys](https://www.freeclimb.com/dashboard/portal/account/authentication) in Dashboard                                                         |
    | AUTH_TOKEN              | Authentication Token which can be found under [API Keys](https://www.freeclimb.com/dashboard/portal/account/authentication) in Dashboard                                               |
-
-4. Change variables to reflect the numbers and application in your account which you will be using in the tutorial
-
-    | ENV VARIABLE            | DESCRIPTION                                                                                                                                                                             |
-    | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
     | YOUR_FREECLIMB_NUMBER | Phone number which will be making the outbound call. Must be a [FreeClimb number](https://www.freeclimb.com/dashboard/portal/numbers) registered to your account.
     | YOUR_VERIFIED_NUMBER | Phone number which will receive the call. Phone number must be [verified with FreeClimb](https://www.freeclimb.com/dashboard/portal/numbers/verified) while your account is in **Trial Mode**.
     | YOUR_APP_ID | [FreeClimb application](https://www.freeclimb.com/dashboard/portal/applications) within your account that has the 'CALL CONNECT URL' configured to your outbound call application.
