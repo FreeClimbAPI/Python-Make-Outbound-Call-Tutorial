@@ -29,10 +29,12 @@ def sendCall():
 @app.route('/callConnect', methods=['POST'])
 def callConnect():
     if request.method == 'POST':
-        say = freeclimb.Say(text="Hello. Welcome to FreeClimb's outbound call tutorial.").to_dict()
-        pause = freeclimb.Pause(length=1000).to_dict()
-        goodbye = freeclimb.Say(text="Goodbye.").to_dict()
-        return freeclimb.PerCLCommand.to_json(say, pause, goodbye)
+        percl = freeclimb.PerCLScript()
+
+        percl.append(freeclimb.Say(text="Hello. Welcome to FreeClimb's outbound call tutorial."))
+        percl.append(freeclimb.Pause(length=1000))
+        percl.append(freeclimb.Say(text="Goodbye."))
+        return json.dumps(percl)
 
 # Specify this route with 'STATUS CALLBACK URL' in App Config
 @app.route('/status', methods=['POST'])
