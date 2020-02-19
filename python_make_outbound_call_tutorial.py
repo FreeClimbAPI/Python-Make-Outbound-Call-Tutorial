@@ -22,7 +22,7 @@ app = Flask(__name__)
 def sendCall():
     if request.method == 'POST':
         call_request = freeclimb.MakeCallRequest(_from=YOUR_FREECLIMB_NUMBER, to=YOUR_VERIFIED_NUMBER, application_id=YOUR_APP_ID)
-        api_instance.make_a_call(configuration.username,  make_call_request=call_request)
+        api_instance.make_a_call(make_call_request=call_request)
         return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 
 # Specify this route with 'CALL CONNECT URL' in App Config
