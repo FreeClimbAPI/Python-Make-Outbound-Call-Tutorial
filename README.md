@@ -37,3 +37,7 @@ To get started using a FreeClimb account, follow the instructions [here](https:/
 ```bash
 env FLASK_APP=python_make_outbound_call_tutorial.py flask run
 ```
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
