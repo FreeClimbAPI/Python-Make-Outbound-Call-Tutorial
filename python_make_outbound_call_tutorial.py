@@ -1,26 +1,30 @@
-from __future__ import print_function
-import time
 import freeclimb
 from freeclimb.api import default_api
+from flask import Flask, request, jsonify
 import os
+from dotenv import load_dotenv
 import json
-from flask import Flask, request
 
+load_dotenv()
+account_id = os.environ.get("ACCOUNT_ID")
+api_key = os.environ.get("API_KEY")
+api_server = os.environ.get("API_SERVER", "https://www.freeclimb.com/apiserver")
+
+YOUR_FREECLIMB_NUMBER = ""
+YOUR_VERIFIED_NUMBER = ""
+YOUR_APP_ID = ""
 
 configuration = freeclimb.Configuration(
-    # Defining host is optional and default to https://www.freeclimb.com/apiserver
-    host     = "https://www.freeclimb.com/apiserver",
-    # Configure HTTP basic authorization: fc
-    username = os.environ['ACCOUNT_ID'],
-    password = os.environ['API_KEY']
+    host = api_server,
+    username = account_id,
+    password = api_key
 )
 
-# Create an instance of the API class
 api_instance = default_api.DefaultApi(freeclimb.ApiClient(configuration))
 
 app = Flask(__name__)
 
-# Triggered locally for convenience
+# Make a request to this endpoint to trigger an outbound call
 @app.route('/sendCall', methods=['POST'])
 def sendCall():
     if request.method == 'POST':
@@ -45,3 +49,6 @@ def callConnect():
 @app.route('/status', methods=['POST'])
 def status():
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=3000)
